@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../react-demos-master/build/react.js"></script>
+    <script src="../../react-demos-master/build/react-dom.js"></script>
+    <script src="../../react-demos-master/build/browser.min.js"></script>
+    <title>Demo02</title>
+    <script type="text/babel">
+        var names = ['Alice', 'Emily', 'Kate'];
+        
+        ReactDOM.render(
+            <div>
+                {
+                    names.map(function (name){
+                        return <div>Hello, {name}!</div>
+                    })
+                }    
+            </div>,     
+            document.getElementById('example')      
+        );
+
+    </script>
+</head>
+<body>
+    <div id="example"></div>
+</body>
+</html>
