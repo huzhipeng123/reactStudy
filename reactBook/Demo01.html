@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../react/react-demos-master/build/react.js"></script>
+    <script src="../../react/react-demos-master/build/react-dom.js"></script>
+    <script src="../../react/react-demos-master/build/browser.min.js"></script>
+    <title>Demo01</title>
+    <script type="text/babel">
+         class LikeButton {
+            constructor () {
+            this.state = { isLiked: false }
+            }
+
+            changeLikeText () {
+            const likeText = this.el.querySelector('.like-text')
+            this.state.isLiked = !this.state.isLiked
+            likeText.innerHTML = this.state.isLiked ? '取消' : '点赞'
+            }
+
+            render () {
+            this.el = createDOMFromString(`
+                <button class='like-button'>
+                <span class='like-text'>点赞</span>
+                <span>👍</span>
+                </button>
+            `)
+            this.el.addEventListener('click', this.changeLikeText.bind(this), false)
+            return this.el
+            }
+        }
+
+        // const wrapper = document.querySelector('.wrapper')
+        // const likeButton1 = new LikeButton()
+        // wrapper.innerHTML = likeButton1.render()
+
+        // const likeButton2 = new LikeButton()
+        // wrapper.innerHTML += likeButton2.render()
+
+        const wrapper = document.querySelector('.wrapper')
+
+        const likeButton1 = new LikeButton()
+        wrapper.appendChild(likeButton1.render())
+
+        const likeButton2 = new LikeButton()
+        wrapper.appendChild(likeButton2.render())
+
+
+        // const button = document.querySelector('.like-btn')
+        // const buttonText = button.querySelector('.like-text')
+        // let isLiked = false
+        // button.addEventListener('click', () => {
+        //     isLiked = !isLiked
+        //     if (isLiked) {
+        //     buttonText.innerHTML = '取消'
+        //     } else {
+        //     buttonText.innerHTML = '点赞'
+        //     }
+        // }, false)
+    </script>
+</head>
+<body>
+    <div class="wrapper"> 
+        <button class="like-btn">
+            <span class="like-text">点赞</span>
+            <span>👍</span>
+        </button>
+    </div>
+</body>
+</html>
